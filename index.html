@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#c9a84c;--gold-hover:#b8912f;--gold-dim:#8a6d2f;--gold-glow:rgba(201,168,76,.18);--gold-tint:rgba(201,168,76,.07);--cream:#faf8f3;--cream-2:#f3efe5;--cream-3:#ece7d8;--ink:#1a1710;--ink-mid:#4a4638;--ink-light:#8a8372;--ink-faint:#bbb5a8;--white:#ffffff;--border:rgba(201,168,76,.20);--border-strong:rgba(201,168,76,.42);--surface:rgba(255,255,255,.78);--r-sm:3px;--r-md:6px;--r-lg:12px;--r-xl:20px;--r-pill:999px;--shadow-sm:0 1px 4px rgba(26,23,16,.06);--shadow-md:0 4px 20px rgba(26,23,16,.09),0 1px 4px rgba(26,23,16,.06);--shadow-lg:0 10px 40px rgba(26,23,16,.13),0 2px 8px rgba(26,23,16,.07);--tx:220ms cubic-bezier(.16,1,.3,1);--fd:'Cormorant Garamond',Georgia,serif;--fb:'Jost','Helvetica Neue',sans-serif;}
+:root{--gold:#c9a84c;--gold-hover:#b8912f;--gold-dim:#8a6d2f;--gold-glow:rgba(201,168,76,.18);--gold-tint:rgba(201,168,76,.07);--cream:#faf8f3;--cream-2:#f3efe5;--cream-3:#ece7d8;--ink:#1a1710;--ink-mid:#4a4638;--ink-light:#8a8372;--ink-faint:#bbb5a8;--white:#ffffff;--border:rgba(201,168,76,.20);--border-strong:rgba(201,168,76,.42);--surface:rgba(255,255,255,.78);--r-md:6px;--r-lg:12px;--r-xl:20px;--r-pill:999px;--shadow-md:0 4px 20px rgba(26,23,16,.09),0 1px 4px rgba(26,23,16,.06);--shadow-lg:0 10px 40px rgba(26,23,16,.13),0 2px 8px rgba(26,23,16,.07);--tx:220ms cubic-bezier(.16,1,.3,1);--fd:'Cormorant Garamond',Georgia,serif;--fb:'Jost','Helvetica Neue',sans-serif;}
 [data-theme="dark"]{--cream:#1b1912;--cream-2:#222014;--cream-3:#2b281a;--ink:#f0ecdf;--ink-mid:#c0b99a;--ink-light:#7a7460;--ink-faint:#4a4638;--white:#211f14;--border:rgba(201,168,76,.15);--border-strong:rgba(201,168,76,.35);--surface:rgba(30,28,18,.85);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{-webkit-text-size-adjust:none;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
@@ -17,8 +17,7 @@ input,select,textarea,button{font:inherit;color:inherit;}
 button{cursor:pointer;background:none;border:none;}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 90% 55% at 15% 5%,rgba(201,168,76,.08) 0%,transparent 55%),radial-gradient(ellipse 65% 70% at 88% 92%,rgba(201,168,76,.06) 0%,transparent 55%);}
 .page{position:relative;z-index:1;max-width:580px;margin:0 auto;padding:28px 18px 100px;}
-.theme-btn{position:fixed;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:var(--cream-2);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;color:var(--gold);z-index:500;box-shadow:var(--shadow-sm);transition:background var(--tx);}
-.theme-btn:hover{background:var(--cream-3);}
+.theme-btn{position:fixed;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:var(--cream-2);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;color:var(--gold);z-index:500;box-shadow:var(--shadow-md);}
 .hdr{text-align:center;padding-bottom:32px;}
 .gold-line{width:52px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto;}
 .gold-line-wide{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border-strong),transparent);}
@@ -34,60 +33,43 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .team-tag{font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-dim);border-top:1px solid var(--border);padding-top:9px;margin-top:2px;display:inline-block;}
 .hdr h1{font-family:var(--fd);font-size:clamp(30px,4vw,42px);font-weight:300;margin-bottom:10px;}
 .hdr-sub{font-size:13px;color:var(--ink-light);}
-.card{background:var(--surface);backdrop-filter:blur(14px);border:1px solid var(--border);border-radius:var(--r-xl);padding:28px 26px;box-shadow:var(--shadow-md);margin-bottom:14px;transition:box-shadow var(--tx);}
-.card:hover{box-shadow:var(--shadow-lg);}
+.card{background:var(--surface);backdrop-filter:blur(14px);border:1px solid var(--border);border-radius:var(--r-xl);padding:28px 26px;box-shadow:var(--shadow-md);margin-bottom:14px;}
 .sec-lbl{display:flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;}
 .sec-lbl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-strong),transparent);}
-.f{margin-bottom:20px;}.f:last-child{margin-bottom:0;}
+.f{margin-bottom:20px;}
+.f:last-child{margin-bottom:0;}
 .fl{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:8px;}
 .req{color:var(--gold);}
-input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;padding:13px 16px;border:1px solid var(--border-strong);border-radius:var(--r-md);background:rgba(255,255,255,.55);font-family:var(--fb);font-size:15px;color:var(--ink);-webkit-appearance:none;appearance:none;transition:border-color var(--tx),box-shadow var(--tx),background var(--tx);}
-[data-theme="dark"] input,[data-theme="dark"] select,[data-theme="dark"] textarea{background:rgba(40,37,20,.55);}
-input::placeholder,textarea::placeholder{color:var(--ink-faint);font-weight:300;}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.14);background:rgba(255,255,255,.92);}
-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%238a8372' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:42px;}
+input[type=text],input[type=email],input[type=tel],select{width:100%;padding:13px 16px;border:1px solid var(--border-strong);border-radius:var(--r-md);background:rgba(255,255,255,.55);font-family:var(--fb);font-size:15px;color:var(--ink);appearance:none;}
+.hint{font-size:11.5px;color:var(--ink-light);margin-top:6px;line-height:1.5;}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 @media(max-width:420px){.g2{grid-template-columns:1fr;}}
-.hint{font-size:11.5px;color:var(--ink-light);margin-top:6px;line-height:1.5;}
-.cg{display:flex;flex-direction:column;gap:8px;}.cg.row{flex-direction:row;flex-wrap:wrap;}
-.ci{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border:1px solid var(--border-strong);border-radius:var(--r-md);background:rgba(255,255,255,.38);cursor:pointer;transition:border-color var(--tx),background var(--tx),box-shadow var(--tx);}
-[data-theme="dark"] .ci{background:rgba(40,37,20,.38);}
-.ci:hover{border-color:var(--gold);background:var(--gold-tint);}
-.ci.sel{border-color:var(--gold);background:var(--gold-glow);box-shadow:0 2px 16px rgba(201,168,76,.12);}
-.ci input[type=radio]{width:16px;height:16px;accent-color:var(--gold);flex-shrink:0;margin-top:3px;}
+.ci{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border:1px solid var(--border-strong);border-radius:var(--r-md);background:rgba(255,255,255,.38);cursor:pointer;}
+.ci.sel{border-color:var(--gold);background:var(--gold-glow);}
+.ci input{width:16px;height:16px;accent-color:var(--gold);flex-shrink:0;margin-top:3px;}
 .ct{font-size:14px;font-weight:500;color:var(--ink);}
-.cond{display:none;margin-top:16px;}.cond.vis{display:block;}
+.cond{display:none;margin-top:16px;}
+.cond.vis{display:block;}
 .cond-inner{background:rgba(201,168,76,.05);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;}
-.escape{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 22px;border:2px solid var(--gold);border-radius:var(--r-md);color:var(--gold);font-size:14px;font-weight:700;letter-spacing:.05em;cursor:pointer;margin-top:20px;width:100%;background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(201,168,76,.06));box-shadow:0 2px 14px rgba(201,168,76,.2);transition:background var(--tx),box-shadow var(--tx),transform var(--tx);}
-.escape:hover{background:linear-gradient(135deg,rgba(201,168,76,.18),rgba(201,168,76,.1));box-shadow:0 4px 22px rgba(201,168,76,.32);}
-.escape:active{transform:scale(.98);}
-.btn-gold{width:100%;padding:16px 28px;background:linear-gradient(135deg,#7a5c22 0%,#c9a84c 45%,#e8d49a 70%,#c9a84c 85%,#7a5c22 100%);background-size:200% 100%;color:#fff;font-family:var(--fb);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:none;border-radius:var(--r-md);cursor:pointer;box-shadow:0 4px 22px rgba(201,168,76,.32);transition:background-position .4s ease,box-shadow var(--tx),transform var(--tx);}
-.btn-gold:hover{background-position:100% 0;box-shadow:0 6px 30px rgba(201,168,76,.48);}
-.btn-gold:active{transform:scale(.98);}
-.btn-outline{width:100%;padding:15px 28px;background:transparent;color:var(--gold-dim);border:1.5px solid var(--border-strong);border-radius:var(--r-md);font-family:var(--fb);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin-top:10px;transition:background var(--tx),color var(--tx);}
-.btn-outline:hover{background:var(--gold-tint);color:var(--gold);}
-.btn-sms{width:100%;padding:15px;background:linear-gradient(135deg,#2d5c1a,#4a8a28);color:#fff;border:none;border-radius:var(--r-md);font-family:var(--fb);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;margin-bottom:10px;box-shadow:0 4px 16px rgba(45,92,26,.24);}
+.btn-gold{width:100%;padding:16px 28px;background:linear-gradient(135deg,#7a5c22 0%,#c9a84c 45%,#e8d49a 70%,#c9a84c 85%,#7a5c22 100%);background-size:200% 100%;color:#fff;font-family:var(--fb);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:none;border-radius:var(--r-md);cursor:pointer;box-shadow:0 4px 22px rgba(201,168,76,.32);}
+.btn-outline{width:100%;padding:15px 28px;background:transparent;color:var(--gold-dim);border:1.5px solid var(--border-strong);border-radius:var(--r-md);font-family:var(--fb);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin-top:10px;}
+.btn-sms{width:100%;padding:15px;background:linear-gradient(135deg,#2d5c1a,#4a8a28);color:#fff;border:none;border-radius:var(--r-md);font-family:var(--fb);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;margin-bottom:10px;}
 .privacy{text-align:center;font-size:11px;color:var(--ink-light);margin-top:10px;}
-.bridge{display:none;}.bridge.vis{display:block;}
-.bridge-ring{width:68px;height:68px;border-radius:50%;background:var(--gold-tint);border:1.5px solid var(--border-strong);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+.bridge{display:none;}
+.bridge.vis{display:block;}
 .bridge-card{background:var(--surface);backdrop-filter:blur(14px);border:1px solid var(--border-strong);border-radius:var(--r-xl);padding:30px 26px;box-shadow:var(--shadow-lg);text-align:center;}
 .bridge-card h2{font-family:var(--fd);font-size:clamp(24px,3vw,34px);font-weight:400;margin-bottom:8px;}
 .bridge-card p{font-size:13px;color:var(--ink-light);margin-bottom:24px;}
-.bridge-card h3{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
 .p2-link{font-size:12px;color:var(--gold-dim);background:var(--cream-2);border:1px solid var(--border);border-radius:var(--r-md);padding:10px 14px;word-break:break-all;margin:0 0 18px;text-align:left;display:block;}
-.or-divider{display:flex;align-items:center;gap:10px;margin:4px 0 12px;font-size:11px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.1em;}
-.or-divider::before,.or-divider::after{content:'';flex:1;height:1px;background:var(--border);}
-.timer-note{font-size:11px;color:var(--ink-light);margin-top:12px;}
 .log-toggle{width:100%;padding:13px 20px;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:space-between;color:var(--ink-mid);font-size:13px;font-weight:600;letter-spacing:.04em;cursor:pointer;margin-top:16px;}
 .log-toggle .badge{background:var(--gold);color:#fff;border-radius:var(--r-pill);padding:2px 9px;font-size:11px;font-weight:700;}
-.log-panel{display:none;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);margin-top:6px;overflow:hidden;box-shadow:var(--shadow-md);}
+.log-panel{display:none;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);margin-top:6px;overflow:hidden;}
 .log-panel.vis{display:block;}
 .log-search{padding:14px 16px;border-bottom:1px solid var(--border);}
 .log-search input{width:100%;padding:10px 14px;border:1px solid var(--border-strong);border-radius:var(--r-md);background:rgba(255,255,255,.6);font-size:14px;}
 .log-list{max-height:320px;overflow-y:auto;}
 .log-empty{padding:28px;text-align:center;color:var(--ink-faint);font-size:13px;}
 .log-item{display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--border);cursor:pointer;}
-.log-item:last-child{border-bottom:none;}
 .log-item:hover{background:var(--gold-tint);}
 .log-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dim),var(--gold));display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:16px;font-weight:600;color:#fff;flex-shrink:0;}
 .log-name{font-size:14px;font-weight:600;color:var(--ink);}
@@ -100,7 +82,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 </style>
 </head>
 <body>
-<button class="theme-btn" data-theme-toggle aria-label="Toggle dark mode">
+<button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
 </button>
 
@@ -153,37 +135,29 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <div class="g2">
 <div class="f">
 <label class="fl" for="fname">First Name <span class="req">*</span></label>
-<input type="text" id="fname" placeholder="First name" required autocomplete="given-name">
+<input type="text" id="fname" placeholder="First name" required>
 </div>
 <div class="f">
 <label class="fl" for="lname">Last Name</label>
-<input type="text" id="lname" placeholder="Last name" autocomplete="family-name">
+<input type="text" id="lname" placeholder="Last name">
 </div>
 </div>
 <div class="f">
 <label class="fl" for="phone">Mobile Number <span class="req">*</span></label>
-<input type="tel" id="phone" placeholder="647-XXX-XXXX" required autocomplete="tel">
+<input type="tel" id="phone" placeholder="647-XXX-XXXX" required>
 <p class="hint">Used only to send you listing info — never shared.</p>
 </div>
 <div class="f">
 <label class="fl" for="email">Email Address</label>
-<input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+<input type="email" id="email" placeholder="your@email.com">
 <p class="hint">Optional — for market reports &amp; sold price alerts.</p>
 </div>
 </div>
 
 <div class="card">
 <div class="sec-lbl">Are You Working with a Realtor?</div>
-<div class="cg" id="rg">
-<label class="ci" id="ci-yes" onclick="pickRltr(this,'yes')">
-<input type="radio" name="has_realtor" value="yes">
-<div><div class="ct">Yes — I have a realtor representing me</div></div>
-</label>
-<label class="ci" id="ci-no" onclick="pickRltr(this,'no')">
-<input type="radio" name="has_realtor" value="no">
-<div><div class="ct">No — I'm open to working with an agent</div></div>
-</label>
-</div>
+<div class="ci" id="ci-yes"><input type="radio" name="has_realtor" value="yes"><div><div class="ct">Yes — I have a realtor representing me</div></div></div>
+<div class="ci" id="ci-no" style="margin-top:8px;"><input type="radio" name="has_realtor" value="no"><div><div class="ct">No — I'm open to working with an agent</div></div></div>
 <div class="cond" id="rltr-block">
 <div class="cond-inner">
 <p class="hint" style="margin-bottom:14px;">No problem at all — please share their details so I can coordinate with them on your behalf.</p>
@@ -195,32 +169,23 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <label class="fl" for="r_phone">Realtor's Phone</label>
 <input type="tel" id="r_phone" placeholder="Agent's phone number">
 </div>
-<div style="display:flex;align-items:center;gap:10px;margin:18px 0 4px;">
-<div style="flex:1;height:1px;background:var(--border);"></div>
-<span style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);">or</span>
-<div style="flex:1;height:1px;background:var(--border);"></div>
-</div>
-<button class="escape" type="button" onclick="goFree()">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
-I am NOT committed to any realtor — visiting freely
-</button>
 </div>
 </div>
 </div>
 
-<button type="button" class="btn-gold" id="sign-in-btn">Sign In &nbsp;—&nbsp; Welcome to the Home</button>
+<button type="button" class="btn-gold" id="signInBtn">Sign In &nbsp;—&nbsp; Welcome to the Home</button>
 <p class="privacy">🔒 &nbsp;Your information is private and will never be shared with third parties.</p>
 
-<button class="log-toggle" onclick="toggleLog()">
+<button class="log-toggle" id="logToggle" type="button">
 <span>📋 &nbsp;Today's Visitor Log</span>
 <span class="badge" id="log-badge">0</span>
 </button>
 <div class="log-panel" id="log-panel">
 <div class="log-search">
-<input type="text" id="log-search" placeholder="🔍  Search by name or phone..." oninput="renderLog(this.value)">
+<input type="text" id="log-search" placeholder="🔍  Search by name or phone...">
 </div>
 <div style="padding:8px 0 4px 0;text-align:right;">
-  <button id="export-log-btn" style="padding:7px 14px;background:var(--ink);color:var(--gold);border:none;border-radius:var(--r-md);font-size:0.78rem;font-family:var(--fb);letter-spacing:0.05em;cursor:pointer;font-weight:600;text-transform:uppercase;">⬇ Export CSV</button>
+<button id="exportBtn" style="padding:7px 14px;background:var(--ink);color:var(--gold);border:none;border-radius:var(--r-md);font-size:0.78rem;font-family:var(--fb);letter-spacing:0.05em;cursor:pointer;font-weight:600;text-transform:uppercase;">⬇ Export CSV</button>
 </div>
 <div class="log-list" id="log-list">
 <div class="log-empty">No visitors signed in yet today.</div>
@@ -230,19 +195,13 @@ I am NOT committed to any realtor — visiting freely
 
 <div class="bridge" id="bridge">
 <div class="bridge-card">
-<div class="bridge-ring">
-<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-</div>
 <h2 id="bridge-name">Welcome!</h2>
 <p>Enjoy your tour. When you're ready, please fill out the short feedback form — it helps me find your perfect home.</p>
-<h3>Send or Open Part 2 — Feedback Form</h3>
 <div class="p2-link" id="p2-url-display"></div>
-<button class="btn-sms" id="btn-sms">📱 &nbsp;Send to Their Phone via SMS</button>
-<div class="or-divider">or</div>
-<button class="btn-outline" id="btn-ipad">📋 &nbsp;Open on This iPad — Hand to Prospect</button>
-<p class="timer-note">⏱ &nbsp;GHL will also auto-send this link 30 min after sign-in.</p>
+<button class="btn-sms" id="smsBtn">📱 &nbsp;Send to Their Phone via SMS</button>
+<button class="btn-outline" id="ipadBtn">📋 &nbsp;Open on This iPad — Hand to Prospect</button>
 </div>
-<button class="btn-gold" style="margin-top:14px;" id="next-visitor-btn">＋ &nbsp;Next Visitor — Sign In Again</button>
+<button class="btn-gold" style="margin-top:14px;" id="nextBtn">＋ &nbsp;Next Visitor — Sign In Again</button>
 </div>
 
 <footer class="ftr">
@@ -252,186 +211,184 @@ I am NOT committed to any realtor — visiting freely
 </div>
 
 <script>
-/* PART2_BASE updated to the desired Step 2 URL */
 const PART2_BASE = "https://khera-ca.github.io/openhouse-feedback";
-let visitors = JSON.parse(localStorage.getItem('oh_visitors_today') || '[]');
+let visitors = JSON.parse(localStorage.getItem("oh_visitors_today") || "[]");
+let currentPhone = "";
+let currentName = "";
+let currentP2 = "";
 
-/* Theme toggle (unchanged) */
-(function(){
-  const btn=document.querySelector('[data-theme-toggle]'),h=document.documentElement;
-  let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
-  h.setAttribute('data-theme',d);
-  const icons={light:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>',dark:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'};
-  if(btn){btn.innerHTML=icons[d==='dark'?'light':'dark'];btn.addEventListener('click',()=>{d=d==='dark'?'light':'dark';h.setAttribute('data-theme',d);btn.innerHTML=icons[d==='dark'?'light':'dark'];});}
-})();
+function $(id){ return document.getElementById(id); }
+function saveVisitors(){ localStorage.setItem("oh_visitors_today", JSON.stringify(visitors)); }
+function esc(s){ return String(s || "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[m])); }
 
-/* Realtor picker */
-function pickRltr(el, v) {
-  document.querySelectorAll('#rg .ci').forEach(e => e.classList.remove('sel'));
-  el.classList.add('sel');
-  const radio = el.querySelector('input[type="radio"]');
+function setTheme(){
+  const btn = $("themeBtn");
+  let theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", theme);
+  btn.innerHTML = theme === "dark"
+    ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+    : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  btn.onclick = () => {
+    theme = theme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+    btn.innerHTML = theme === "dark"
+      ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  };
+}
+
+function pickRealtor(v){
+  document.querySelectorAll(".ci").forEach(x => x.classList.remove("sel"));
+  $("ci-" + v).classList.add("sel");
+  const radio = $("ci-" + v).querySelector("input[type=radio]");
   if (radio) radio.checked = true;
-  document.getElementById('rltr-block').classList.toggle('vis', v === 'yes');
-}
-function goFree(){
-  document.querySelectorAll('#rg .ci').forEach(e=>e.classList.remove('sel'));
-  document.getElementById('ci-no').classList.add('sel');
-  document.querySelector('#ci-no input').checked=true;
-  document.getElementById('rltr-block').classList.remove('vis');
-  document.getElementById('r_name').value='';
-  document.getElementById('r_phone').value='';
+  $("rltr-block").classList.toggle("vis", v === "yes");
 }
 
-/* Build Part 2 URL */
 function buildP2URL(phone, name, property){
-  return PART2_BASE+'?phone='+encodeURIComponent(phone)+'&name='+encodeURIComponent(name)+'&property='+encodeURIComponent(property);
+  return PART2_BASE + "?phone=" + encodeURIComponent(phone) + "&name=" + encodeURIComponent(name) + "&property=" + encodeURIComponent(property);
 }
 
-/* Sign-in handler (fixed/robust) */
-function submitP1(){
-  const fname=document.getElementById('fname').value.trim();
-  const phone=document.getElementById('phone').value.trim();
-  const prop=document.getElementById('property').value;
-  if(!fname){alert('Please enter your first name.');document.getElementById('fname').focus();return;}
-  if(!phone){alert('Please enter your mobile number.');document.getElementById('phone').focus();return;}
-  if(!prop){alert('Please select the property you are visiting.');document.getElementById('property').focus();return;}
+function renderLog(query=""){
+  const list = $("log-list");
+  let items = [...visitors].reverse();
+  if (query.trim()) {
+    const q = query.trim().toLowerCase();
+    items = items.filter(v => ((v.fname || "") + " " + (v.lname || "")).toLowerCase().includes(q) || String(v.phone || "").includes(q));
+  }
+  if (!items.length) {
+    list.innerHTML = '<div class="log-empty">' + (query.trim() ? "No matches found." : "No visitors signed in yet today.") + "</div>";
+    return;
+  }
+  list.innerHTML = items.map((v, i) => {
+    const realIndex = visitors.length - 1 - i;
+    const initials = ((v.fname || "")[0] || "") + ((v.lname || "")[0] || "");
+    return `<div class="log-item" onclick="openVisitor(${realIndex})">
+      <div class="log-avatar">${esc(initials.toUpperCase())}</div>
+      <div style="flex:1;min-width:0;">
+        <div class="log-name">${esc(v.fname)} ${esc(v.lname)}</div>
+        <div class="log-phone">${esc(v.phone)}</div>
+      </div>
+      <div class="log-time">${esc(v.time)}</div>
+      <div class="log-arrow">›</div>
+    </div>`;
+  }).join("");
+}
+
+function updateBadge(){
+  $("log-badge").textContent = visitors.length;
+}
+
+function signIn(){
+  const fname = $("fname").value.trim();
+  const phone = $("phone").value.trim();
+  const property = $("property").value;
+  if (!fname){ alert("Please enter your first name."); return; }
+  if (!phone){ alert("Please enter your mobile number."); return; }
+  if (!property){ alert("Please select the property you are visiting."); return; }
 
   const visitor = {
     fname,
-    lname:document.getElementById('lname').value.trim(),
+    lname: $("lname").value.trim(),
     phone,
-    email:document.getElementById('email').value.trim(),
-    property:prop,
-    has_realtor:document.querySelector('input[name="has_realtor"]:checked')?.value||'not answered',
-    realtor_name:document.getElementById('r_name').value.trim(),
-    realtor_phone:document.getElementById('r_phone').value.trim(),
-    time:new Date().toLocaleTimeString('en-CA',{hour:'2-digit',minute:'2-digit'}),
-    timestamp:Date.now()
+    email: $("email").value.trim(),
+    property,
+    has_realtor: document.querySelector('input[name="has_realtor"]:checked')?.value || "",
+    realtor_name: $("r_name").value.trim(),
+    realtor_phone: $("r_phone").value.trim(),
+    time: new Date().toLocaleTimeString("en-CA", {hour:"2-digit", minute:"2-digit"}),
+    timestamp: Date.now()
   };
 
   visitors.push(visitor);
-  localStorage.setItem('oh_visitors_today', JSON.stringify(visitors));
+  saveVisitors();
 
-  const p2url = buildP2URL(phone, fname, prop);
-  window._p2url = p2url;
-  window._phone = phone;
-  window._fname = fname;
+  currentPhone = phone;
+  currentName = fname;
+  currentP2 = buildP2URL(phone, fname, property);
+
+  $("bridge-name").textContent = "Welcome, " + fname + "! 🏡";
+  $("p2-url-display").textContent = currentP2;
+  $("form-p1").style.display = "none";
+  $("bridge").classList.add("vis");
 
   updateBadge();
   renderLog();
-
-  document.getElementById('bridge-name').textContent = 'Welcome, '+fname+'! 🏡';
-  document.getElementById('p2-url-display').textContent = p2url;
-  document.getElementById('form-p1').style.display='none';
-  document.getElementById('bridge').classList.add('vis');
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({top:0, behavior:"smooth"});
 }
 
-/* Attach Sign In button programmatically to avoid inline onclick issues */
-document.getElementById('sign-in-btn').addEventListener('click', submitP1);
+function openVisitor(index){
+  const v = visitors[index];
+  if (!v) return;
+  currentPhone = v.phone || "";
+  currentName = v.fname || "";
+  currentP2 = buildP2URL(v.phone || "", v.fname || "", v.property || "");
+  $("bridge-name").textContent = "Welcome back, " + (v.fname || "Guest") + "! 🏡";
+  $("p2-url-display").textContent = currentP2;
+  $("form-p1").style.display = "none";
+  $("bridge").classList.add("vis");
+  $("log-panel").classList.remove("vis");
+  window.scrollTo({top:0, behavior:"smooth"});
+}
 
-/* SMS and iPad buttons */
-document.getElementById('btn-sms').addEventListener('click', function(){
-  if(!window._phone || !window._fname || !window._p2url){ alert('Please sign in a visitor first.'); return; }
-  const msg='Hi '+window._fname+'! Thank you for visiting today\\'s open house. I\\'d love your quick feedback — takes 2 mins: '+window._p2url+'\\n\\n— Sanjeev Khera, RE/MAX Hallmark\\nReply STOP to opt out.';
-  window.location.href='sms:'+window._phone+'?body='+encodeURIComponent(msg);
-});
-document.getElementById('btn-ipad').addEventListener('click', function(){
-  if(!window._p2url){ alert('Please sign in a visitor first.'); return; }
-  window.open(window._p2url,'_blank');
-});
+function doSMS(){
+  if (!currentPhone || !currentName || !currentP2) { alert("Please sign in a visitor first."); return; }
+  const msg = "Hi " + currentName + "! Thank you for visiting today's open house. I'd love your quick feedback — takes 2 mins: " + currentP2 + "\\n\\n— Sanjeev Khera, RE/MAX Hallmark\\nReply STOP to opt out.";
+  window.location.href = "sms:" + currentPhone + "?body=" + encodeURIComponent(msg);
+}
 
-/* Next visitor (reset) */
-document.getElementById('next-visitor-btn').addEventListener('click', resetAll);
+function doIPad(){
+  if (!currentP2) { alert("Please sign in a visitor first."); return; }
+  window.open(currentP2, "_blank");
+}
+
 function resetAll(){
-  ['fname','lname','phone','email','r_name','r_phone'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  document.getElementById('property').value='';
-  document.querySelectorAll('.ci').forEach(e=>e.classList.remove('sel'));
-  document.querySelectorAll('input[type=radio]').forEach(e=>e.checked=false);
-  document.getElementById('rltr-block').classList.remove('vis');
-  document.getElementById('bridge').classList.remove('vis');
-  document.getElementById('form-p1').style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
+  ["fname","lname","phone","email","r_name","r_phone"].forEach(id => $(id).value = "");
+  $("property").value = "";
+  document.querySelectorAll(".ci").forEach(x => x.classList.remove("sel"));
+  document.querySelectorAll('input[type=radio]').forEach(x => x.checked = false);
+  $("rltr-block").classList.remove("vis");
+  $("bridge").classList.remove("vis");
+  $("form-p1").style.display = "block";
+  currentPhone = "";
+  currentName = "";
+  currentP2 = "";
+  window.scrollTo({top:0, behavior:"smooth"});
 }
 
-/* Log / badge / rendering */
-function updateBadge(){
-  document.getElementById('log-badge').textContent = visitors.length;
-}
-function toggleLog(){
-  document.getElementById('log-panel').classList.toggle('vis');
-  renderLog();
-}
-function renderLog(query){
-  const list=document.getElementById('log-list');
-  let items = [...visitors].reverse();
-  if(query && query.trim()){
-    const q=query.trim().toLowerCase();
-    items=items.filter(v=>(v.fname+' '+v.lname).toLowerCase().includes(q)||v.phone.includes(q));
-  }
-  if(!items.length){
-    list.innerHTML='<div class="log-empty">'+(query?'No matches found.':'No visitors signed in yet today.')+'</div>';
-    return;
-  }
-  list.innerHTML=items.map((v, i)=>{
-    const initials=((v.fname||'')[0]+((v.lname||'')[0]||'')).toUpperCase();
-    const realIndex = visitors.length - 1 - i;
-    return `<div class="log-item" onclick="reopenBridge(${realIndex})">
-      <div class="log-avatar">${initials}</div>
-      <div style="flex:1;min-width:0;">
-        <div class="log-name">${escapeHtml(v.fname)} ${escapeHtml(v.lname)}</div>
-        <div class="log-phone">${escapeHtml(v.phone)}</div>
-      </div>
-      <div class="log-time">${escapeHtml(v.time)}</div>
-      <div class="log-arrow">›</div>
-    </div>`;
-  }).join('');
-}
-
-/* Reopen bridge for a specific visitor */
-function reopenBridge(idx){
-  const v=visitors[idx];
-  if(!v) return;
-  const p2url=buildP2URL(v.phone, v.fname, v.property);
-  window._p2url=p2url;
-  window._phone=v.phone;
-  window._fname=v.fname;
-  document.getElementById('bridge-name').textContent='Welcome back, '+v.fname+'! 🏡';
-  document.getElementById('p2-url-display').textContent=p2url;
-  document.getElementById('form-p1').style.display='none';
-  document.getElementById('log-panel').classList.remove('vis');
-  document.getElementById('bridge').classList.add('vis');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-/* CSV export (button in log panel) */
 function exportVisitorsCSV(){
-  if(!visitors.length){alert('No visitors to export yet.');return;}
-  const headers=['Time','First Name','Last Name','Phone','Email','Property','Working with Realtor','Realtor Name','Realtor Phone'];
-  const rows=visitors.map(v=>[
-    v.time||'',v.fname||'',v.lname||'',v.phone||'',v.email||'',
-    v.property||'',v.has_realtor||'',v.realtor_name||'',v.realtor_phone||''
-  ].map(c=>'"'+String(c).replace(/"/g,'""')+'"'));
-  const csv=[headers.map(h=>'"'+h+'"').join(','),...rows.map(r=>r.join(','))].join('\n');
-  const blob=new Blob([csv],{type:'text/csv'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;a.download='openhouse-visitors-'+new Date().toISOString().slice(0,10)+'.csv';
-  a.click();URL.revokeObjectURL(url);
+  if (!visitors.length){ alert("No visitors to export yet."); return; }
+  const headers = ["Time","First Name","Last Name","Phone","Email","Property","Working with Realtor","Realtor Name","Realtor Phone"];
+  const rows = visitors.map(v => [
+    v.time || "", v.fname || "", v.lname || "", v.phone || "", v.email || "",
+    v.property || "", v.has_realtor || "", v.realtor_name || "", v.realtor_phone || ""
+  ].map(c => '"' + String(c).replace(/"/g,'""') + '"'));
+  const csv = [headers.map(h => '"' + h + '"').join(","), ...rows.map(r => r.join(","))].join("\\n");
+  const blob = new Blob([csv], {type:"text/csv"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "openhouse-visitors-" + new Date().toISOString().slice(0,10) + ".csv";
+  a.click();
+  URL.revokeObjectURL(url);
 }
 
-/* Utility to escape HTML when rendering names */
-function escapeHtml(s){ if(!s) return ''; return String(s).replace(/[&<>"']/g, function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[m];}); }
+document.addEventListener("DOMContentLoaded", () => {
+  setTheme();
 
-/* Attach export button */
-document.getElementById('export-log-btn').addEventListener('click', exportVisitorsCSV);
+  $("ci-yes").addEventListener("click", () => pickRealtor("yes"));
+  $("ci-no").addEventListener("click", () => pickRealtor("no"));
+  $("signInBtn").addEventListener("click", signIn);
+  $("logToggle").addEventListener("click", () => $("log-panel").classList.toggle("vis"));
+  $("log-search").addEventListener("input", e => renderLog(e.target.value));
+  $("exportBtn").addEventListener("click", exportVisitorsCSV);
+  $("smsBtn").addEventListener("click", doSMS);
+  $("ipadBtn").addEventListener("click", doIPad);
+  $("nextBtn").addEventListener("click", resetAll);
 
-/* Initialize UI */
-updateBadge();
-renderLog();
-
-/* Expose submit for manual debugging if needed */
-window.submitP1 = submitP1;
+  updateBadge();
+  renderLog();
+});
 </script>
 </body>
 </html>
