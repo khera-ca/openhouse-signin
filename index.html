@@ -140,12 +140,10 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <label class="fl" for="property">Which home are you visiting? <span class="req">*</span></label>
 <select id="property" required>
 <option value="">— Select the address —</option>
-<option value="123 Maple Avenue, Vaughan ON">123 Maple Avenue, Vaughan ON</option>
-<option value="456 Oak Crescent, Woodbridge ON">456 Oak Crescent, Woodbridge ON</option>
-<option value="789 Pine Street, Kleinburg ON">789 Pine Street, Kleinburg ON</option>
-<option>246 Wardlaw Place, Vaughan</option>
+<option value="23 Wardlaw Place Vaughan ON">23 Wardlaw Place Vaughan ON</option>
+<option value="246 Wardlaw Place Vaughan ON">246 Wardlaw Place Vaughan ON</option>
+<option value="180 Blue Willow Dr #47 Vaughan ON">180 Blue Willow Dr #47 Vaughan ON</option>
 <option value="Address not listed">Address not listed</option>
-<option value="other">Address not listed above</option>
 </select>
 </div>
 </div>
@@ -210,7 +208,7 @@ I am NOT committed to any realtor — visiting freely
 </div>
 </div>
 
-<button type="button" class="btn-gold" onclick="submitP1()">Sign In &nbsp;—&nbsp; Welcome to the Home</button>
+<button type="button" class="btn-gold" id="sign-in-btn">Sign In &nbsp;—&nbsp; Welcome to the Home</button>
 <p class="privacy">🔒 &nbsp;Your information is private and will never be shared with third parties.</p>
 
 <button class="log-toggle" onclick="toggleLog()">
@@ -222,7 +220,7 @@ I am NOT committed to any realtor — visiting freely
 <input type="text" id="log-search" placeholder="🔍  Search by name or phone..." oninput="renderLog(this.value)">
 </div>
 <div style="padding:8px 0 4px 0;text-align:right;">
-  <button onclick="exportVisitorsCSV()" style="padding:7px 14px;background:var(--ink);color:var(--gold);border:none;border-radius:var(--r-md);font-size:0.78rem;font-family:var(--fb);letter-spacing:0.05em;cursor:pointer;font-weight:600;text-transform:uppercase;">⬇ Export CSV</button>
+  <button id="export-log-btn" style="padding:7px 14px;background:var(--ink);color:var(--gold);border:none;border-radius:var(--r-md);font-size:0.78rem;font-family:var(--fb);letter-spacing:0.05em;cursor:pointer;font-weight:600;text-transform:uppercase;">⬇ Export CSV</button>
 </div>
 <div class="log-list" id="log-list">
 <div class="log-empty">No visitors signed in yet today.</div>
@@ -239,12 +237,12 @@ I am NOT committed to any realtor — visiting freely
 <p>Enjoy your tour. When you're ready, please fill out the short feedback form — it helps me find your perfect home.</p>
 <h3>Send or Open Part 2 — Feedback Form</h3>
 <div class="p2-link" id="p2-url-display"></div>
-<button class="btn-sms" onclick="doSMS()">📱 &nbsp;Send to Their Phone via SMS</button>
+<button class="btn-sms" id="btn-sms">📱 &nbsp;Send to Their Phone via SMS</button>
 <div class="or-divider">or</div>
-<button class="btn-outline" onclick="doIPad()">📋 &nbsp;Open on This iPad — Hand to Prospect</button>
+<button class="btn-outline" id="btn-ipad">📋 &nbsp;Open on This iPad — Hand to Prospect</button>
 <p class="timer-note">⏱ &nbsp;GHL will also auto-send this link 30 min after sign-in.</p>
 </div>
-<button class="btn-gold" style="margin-top:14px;" onclick="resetAll()">＋ &nbsp;Next Visitor — Sign In Again</button>
+<button class="btn-gold" style="margin-top:14px;" id="next-visitor-btn">＋ &nbsp;Next Visitor — Sign In Again</button>
 </div>
 
 <footer class="ftr">
@@ -254,9 +252,11 @@ I am NOT committed to any realtor — visiting freely
 </div>
 
 <script>
-const PART2_BASE = "https://sanjeevopenhousestep2.netlify.app";
+/* PART2_BASE updated to the desired Step 2 URL */
+const PART2_BASE = "https://khera-ca.github.io/openhouse-feedback";
 let visitors = JSON.parse(localStorage.getItem('oh_visitors_today') || '[]');
 
+/* Theme toggle (unchanged) */
 (function(){
   const btn=document.querySelector('[data-theme-toggle]'),h=document.documentElement;
   let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
@@ -265,18 +265,12 @@ let visitors = JSON.parse(localStorage.getItem('oh_visitors_today') || '[]');
   if(btn){btn.innerHTML=icons[d==='dark'?'light':'dark'];btn.addEventListener('click',()=>{d=d==='dark'?'light':'dark';h.setAttribute('data-theme',d);btn.innerHTML=icons[d==='dark'?'light':'dark'];});}
 })();
 
+/* Realtor picker */
 function pickRltr(el, v) {
-  // 1. Remove 'sel' class from all options
   document.querySelectorAll('#rg .ci').forEach(e => e.classList.remove('sel'));
-  
-  // 2. Add 'sel' class to the clicked one
   el.classList.add('sel');
-  
-  // 3. MANUALLY CHECK THE RADIO BUTTON (The missing link)
   const radio = el.querySelector('input[type="radio"]');
   if (radio) radio.checked = true;
-
-  // 4. Show/Hide the realtor details block
   document.getElementById('rltr-block').classList.toggle('vis', v === 'yes');
 }
 function goFree(){
@@ -287,20 +281,26 @@ function goFree(){
   document.getElementById('r_name').value='';
   document.getElementById('r_phone').value='';
 }
+
+/* Build Part 2 URL */
 function buildP2URL(phone, name, property){
   return PART2_BASE+'?phone='+encodeURIComponent(phone)+'&name='+encodeURIComponent(name)+'&property='+encodeURIComponent(property);
 }
+
+/* Sign-in handler (fixed/robust) */
 function submitP1(){
   const fname=document.getElementById('fname').value.trim();
   const phone=document.getElementById('phone').value.trim();
   const prop=document.getElementById('property').value;
-  if(!fname){alert('Please enter your first name.');return;}
-  if(!phone){alert('Please enter your mobile number.');return;}
-  if(!prop){alert('Please select the property you are visiting.');return;}
+  if(!fname){alert('Please enter your first name.');document.getElementById('fname').focus();return;}
+  if(!phone){alert('Please enter your mobile number.');document.getElementById('phone').focus();return;}
+  if(!prop){alert('Please select the property you are visiting.');document.getElementById('property').focus();return;}
 
   const visitor = {
-    fname, lname:document.getElementById('lname').value.trim(),
-    phone, email:document.getElementById('email').value.trim(),
+    fname,
+    lname:document.getElementById('lname').value.trim(),
+    phone,
+    email:document.getElementById('email').value.trim(),
     property:prop,
     has_realtor:document.querySelector('input[name="has_realtor"]:checked')?.value||'not answered',
     realtor_name:document.getElementById('r_name').value.trim(),
@@ -326,11 +326,23 @@ function submitP1(){
   document.getElementById('bridge').classList.add('vis');
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function doSMS(){
+
+/* Attach Sign In button programmatically to avoid inline onclick issues */
+document.getElementById('sign-in-btn').addEventListener('click', submitP1);
+
+/* SMS and iPad buttons */
+document.getElementById('btn-sms').addEventListener('click', function(){
+  if(!window._phone || !window._fname || !window._p2url){ alert('Please sign in a visitor first.'); return; }
   const msg='Hi '+window._fname+'! Thank you for visiting today\\'s open house. I\\'d love your quick feedback — takes 2 mins: '+window._p2url+'\\n\\n— Sanjeev Khera, RE/MAX Hallmark\\nReply STOP to opt out.';
   window.location.href='sms:'+window._phone+'?body='+encodeURIComponent(msg);
-}
-function doIPad(){window.open(window._p2url,'_blank');}
+});
+document.getElementById('btn-ipad').addEventListener('click', function(){
+  if(!window._p2url){ alert('Please sign in a visitor first.'); return; }
+  window.open(window._p2url,'_blank');
+});
+
+/* Next visitor (reset) */
+document.getElementById('next-visitor-btn').addEventListener('click', resetAll);
 function resetAll(){
   ['fname','lname','phone','email','r_name','r_phone'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   document.getElementById('property').value='';
@@ -341,6 +353,8 @@ function resetAll(){
   document.getElementById('form-p1').style.display='block';
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
+/* Log / badge / rendering */
 function updateBadge(){
   document.getElementById('log-badge').textContent = visitors.length;
 }
@@ -360,21 +374,24 @@ function renderLog(query){
     return;
   }
   list.innerHTML=items.map((v, i)=>{
-    const initials=(v.fname[0]+(v.lname?v.lname[0]:'')).toUpperCase();
+    const initials=((v.fname||'')[0]+((v.lname||'')[0]||'')).toUpperCase();
     const realIndex = visitors.length - 1 - i;
     return `<div class="log-item" onclick="reopenBridge(${realIndex})">
       <div class="log-avatar">${initials}</div>
       <div style="flex:1;min-width:0;">
-        <div class="log-name">${v.fname} ${v.lname}</div>
-        <div class="log-phone">${v.phone}</div>
+        <div class="log-name">${escapeHtml(v.fname)} ${escapeHtml(v.lname)}</div>
+        <div class="log-phone">${escapeHtml(v.phone)}</div>
       </div>
-      <div class="log-time">${v.time}</div>
+      <div class="log-time">${escapeHtml(v.time)}</div>
       <div class="log-arrow">›</div>
     </div>`;
   }).join('');
 }
+
+/* Reopen bridge for a specific visitor */
 function reopenBridge(idx){
   const v=visitors[idx];
+  if(!v) return;
   const p2url=buildP2URL(v.phone, v.fname, v.property);
   window._p2url=p2url;
   window._phone=v.phone;
@@ -386,8 +403,8 @@ function reopenBridge(idx){
   document.getElementById('bridge').classList.add('vis');
   window.scrollTo({top:0,behavior:'smooth'});
 }
-updateBadge();
-renderLog();
+
+/* CSV export (button in log panel) */
 function exportVisitorsCSV(){
   if(!visitors.length){alert('No visitors to export yet.');return;}
   const headers=['Time','First Name','Last Name','Phone','Email','Property','Working with Realtor','Realtor Name','Realtor Phone'];
@@ -402,6 +419,19 @@ function exportVisitorsCSV(){
   a.href=url;a.download='openhouse-visitors-'+new Date().toISOString().slice(0,10)+'.csv';
   a.click();URL.revokeObjectURL(url);
 }
+
+/* Utility to escape HTML when rendering names */
+function escapeHtml(s){ if(!s) return ''; return String(s).replace(/[&<>"']/g, function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[m];}); }
+
+/* Attach export button */
+document.getElementById('export-log-btn').addEventListener('click', exportVisitorsCSV);
+
+/* Initialize UI */
+updateBadge();
+renderLog();
+
+/* Expose submit for manual debugging if needed */
+window.submitP1 = submitP1;
 </script>
 </body>
 </html>
