@@ -357,19 +357,48 @@ function resetAll(){
 }
 
 function exportVisitorsCSV(){
-  if (!visitors.length){ alert("No visitors to export yet."); return; }
-  const headers = ["Time","First Name","Last Name","Phone","Email","Property","Working with Realtor","Realtor Name","Realtor Phone"];
+  if (!visitors.length) {
+    alert("No visitors to export yet.");
+    return;
+  }
+
+  const headers = [
+    "Time",
+    "First Name",
+    "Last Name",
+    "Phone",
+    "Email",
+    "Property",
+    "Working with Realtor",
+    "Realtor Name",
+    "Realtor Phone"
+  ];
+
   const rows = visitors.map(v => [
-    v.time || "", v.fname || "", v.lname || "", v.phone || "", v.email || "",
-    v.property || "", v.has_realtor || "", v.realtor_name || "", v.realtor_phone || ""
-  ].map(c => '"' + String(c).replace(/"/g,'""') + '"'));
-  const csv = [headers.map(h => '"' + h + '"').join(","), ...rows.map(r => r.join(","))].join("\\n");
-  const blob = new Blob([csv], {type:"text/csv"});
+    v.time || "",
+    v.fname || "",
+    v.lname || "",
+    v.phone || "",
+    v.email || "",
+    v.property || "",
+    v.has_realtor || "",
+    v.realtor_name || "",
+    v.realtor_phone || ""
+  ].map(value => '"' + String(value).replace(/"/g, '""') + '"').join(","));
+
+  const csv = [
+    headers.map(h => '"' + h + '"').join(","),
+    ...rows
+  ].join("\r\n");
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
   a.download = "openhouse-visitors-" + new Date().toISOString().slice(0,10) + ".csv";
+  document.body.appendChild(a);
   a.click();
+  a.remove();
   URL.revokeObjectURL(url);
 }
 
