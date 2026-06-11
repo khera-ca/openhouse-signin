@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#c9a84c;--gold-hover:#b8912f;--gold-dim:#8a6d2f;--gold-glow:rgba(201,168,76,.18);--gold-tint:rgba(201,168,76,.07);--cream:#faf8f3;--cream-2:#f3efe5;--cream-3:#ece7d8;--ink:#1a1710;--ink-mid:#4a4638;--ink-light:#8a8372;--ink-faint:#bbb5a8;--white:#ffffff;--border:rgba(201,168,76,.20);--border-strong:rgba(201,168,76,.42);--surface:rgba(255,255,255,.78);--r-md:6px;--r-lg:12px;--r-xl:20px;--r-pill:999px;--shadow-md:0 4px 20px rgba(26,23,16,.09),0 1px 4px rgba(26,23,16,.06);--shadow-lg:0 10px 40px rgba(26,23,16,.13),0 2px 8px rgba(26,23,16,.07);--tx:220ms cubic-bezier(.16,1,.3,1);--fd:'Cormorant Garamond',Georgia,serif;--fb:'Jost','Helvetica Neue',sans-serif;}
+:root{--gold:#c9a84c;--gold-hover:#b8912f;--gold-dim:#8a6d2f;--gold-glow:rgba(201,168,76,.18);--gold-tint:rgba(201,168,76,.07);--cream:#faf8f3;--cream-2:#f3efe5;--cream-3:#ece7d8;--ink:#1a1710;--ink-mid:#4a4638;--ink-light:#8a8372;--ink-faint:#bbb5a8;--white:#ffffff;--border:rgba(201,168,76,.20);--border-strong:rgba(201,168,76,.42);--surface:rgba(255,255,255,.78);--r-md:6px;--r-lg:12px;--r-xl:20px;--r-pill:999px;--shadow-md:0 4px 20px rgba(26,23,16,.09),0 1px 4px rgba(26,23,16,.06);--tx:220ms cubic-bezier(.16,1,.3,1);--fd:'Cormorant Garamond',Georgia,serif;--fb:'Jost','Helvetica Neue',sans-serif;}
 [data-theme="dark"]{--cream:#1b1912;--cream-2:#222014;--cream-3:#2b281a;--ink:#f0ecdf;--ink-mid:#c0b99a;--ink-light:#7a7460;--ink-faint:#4a4638;--white:#211f14;--border:rgba(201,168,76,.15);--border-strong:rgba(201,168,76,.35);--surface:rgba(30,28,18,.85);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{-webkit-text-size-adjust:none;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
@@ -41,6 +41,10 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .fl{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:8px;}
 .req{color:var(--gold);}
 input[type=text],input[type=email],input[type=tel],select{width:100%;padding:13px 16px;border:1px solid var(--border-strong);border-radius:var(--r-md);background:rgba(255,255,255,.55);font-family:var(--fb);font-size:15px;color:var(--ink);appearance:none;}
+[data-theme="dark"] input,[data-theme="dark"] select{background:rgba(40,37,20,.55);}
+input::placeholder{color:var(--ink-faint);font-weight:300;}
+input:focus,select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.14);background:rgba(255,255,255,.92);}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%238a8372' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:42px;}
 .hint{font-size:11.5px;color:var(--ink-light);margin-top:6px;line-height:1.5;}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 @media(max-width:420px){.g2{grid-template-columns:1fr;}}
@@ -52,30 +56,10 @@ input[type=text],input[type=email],input[type=tel],select{width:100%;padding:13p
 .cond.vis{display:block;}
 .cond-inner{background:rgba(201,168,76,.05);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;}
 .btn-gold{width:100%;padding:16px 28px;background:linear-gradient(135deg,#7a5c22 0%,#c9a84c 45%,#e8d49a 70%,#c9a84c 85%,#7a5c22 100%);background-size:200% 100%;color:#fff;font-family:var(--fb);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:none;border-radius:var(--r-md);cursor:pointer;box-shadow:0 4px 22px rgba(201,168,76,.32);}
-.btn-outline{width:100%;padding:15px 28px;background:transparent;color:var(--gold-dim);border:1.5px solid var(--border-strong);border-radius:var(--r-md);font-family:var(--fb);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin-top:10px;}
-.btn-sms{width:100%;padding:15px;background:linear-gradient(135deg,#2d5c1a,#4a8a28);color:#fff;border:none;border-radius:var(--r-md);font-family:var(--fb);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;margin-bottom:10px;}
+.btn-gold:disabled{opacity:.6;cursor:not-allowed;}
 .privacy{text-align:center;font-size:11px;color:var(--ink-light);margin-top:10px;}
-.bridge{display:none;}
-.bridge.vis{display:block;}
-.bridge-card{background:var(--surface);backdrop-filter:blur(14px);border:1px solid var(--border-strong);border-radius:var(--r-xl);padding:30px 26px;box-shadow:var(--shadow-lg);text-align:center;}
-.bridge-card h2{font-family:var(--fd);font-size:clamp(24px,3vw,34px);font-weight:400;margin-bottom:8px;}
-.bridge-card p{font-size:13px;color:var(--ink-light);margin-bottom:24px;}
-.p2-link{font-size:12px;color:var(--gold-dim);background:var(--cream-2);border:1px solid var(--border);border-radius:var(--r-md);padding:10px 14px;word-break:break-all;margin:0 0 18px;text-align:left;display:block;}
-.log-toggle{width:100%;padding:13px 20px;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:space-between;color:var(--ink-mid);font-size:13px;font-weight:600;letter-spacing:.04em;cursor:pointer;margin-top:16px;}
-.log-toggle .badge{background:var(--gold);color:#fff;border-radius:var(--r-pill);padding:2px 9px;font-size:11px;font-weight:700;}
-.log-panel{display:none;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);margin-top:6px;overflow:hidden;}
-.log-panel.vis{display:block;}
-.log-search{padding:14px 16px;border-bottom:1px solid var(--border);}
-.log-search input{width:100%;padding:10px 14px;border:1px solid var(--border-strong);border-radius:var(--r-md);background:rgba(255,255,255,.6);font-size:14px;}
-.log-list{max-height:320px;overflow-y:auto;}
-.log-empty{padding:28px;text-align:center;color:var(--ink-faint);font-size:13px;}
-.log-item{display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--border);cursor:pointer;}
-.log-item:hover{background:var(--gold-tint);}
-.log-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dim),var(--gold));display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:16px;font-weight:600;color:#fff;flex-shrink:0;}
-.log-name{font-size:14px;font-weight:600;color:var(--ink);}
-.log-phone{font-size:12px;color:var(--ink-light);margin-top:2px;}
-.log-time{font-size:11px;color:var(--ink-faint);margin-left:auto;flex-shrink:0;}
-.log-arrow{color:var(--gold);margin-left:6px;}
+.notice{font-size:12px;color:var(--ink-light);text-align:center;margin-top:14px;display:none;}
+.notice.vis{display:block;}
 .ftr{text-align:center;margin-top:60px;padding-top:24px;border-top:1px solid var(--border);}
 .ftr-name{font-family:var(--fd);font-size:15px;font-weight:300;letter-spacing:.08em;color:var(--ink-light);}
 .ftr-sub{font-size:10.5px;color:var(--ink-faint);margin-top:6px;}
@@ -112,15 +96,15 @@ input[type=text],input[type=email],input[type=tel],select{width:100%;padding:13p
 </div>
 <div class="gold-line-wide" style="margin:22px 0 20px;"></div>
 <h1>Open House Sign‑In</h1>
-<p class="hdr-sub">30 seconds &nbsp;·&nbsp; Completely private &nbsp;·&nbsp; No obligation</p>
+<p class="hdr-sub">Quick sign-in on your phone, then optional 2-minute feedback</p>
 </header>
 
-<div id="form-p1">
+<form id="signInForm" novalidate>
 <div class="card">
 <div class="sec-lbl">Today's Open House</div>
 <div class="f">
 <label class="fl" for="property">Which home are you visiting? <span class="req">*</span></label>
-<select id="property" required>
+<select id="property" name="property" required autocomplete="off">
 <option value="">— Select the address —</option>
 <option value="57 Saint Nicholas Cres Vaughan ON">57 Saint Nicholas Cres Vaughan ON</option>
 <option value="46 Matthew Drive Vaughan ON">46 Matthew Drive Vaughan ON</option>
@@ -135,74 +119,59 @@ input[type=text],input[type=email],input[type=tel],select{width:100%;padding:13p
 <div class="g2">
 <div class="f">
 <label class="fl" for="fname">First Name <span class="req">*</span></label>
-<input type="text" id="fname" placeholder="First name" required>
+<input type="text" id="fname" name="fname" placeholder="First name" autocomplete="given-name" required>
 </div>
 <div class="f">
 <label class="fl" for="lname">Last Name</label>
-<input type="text" id="lname" placeholder="Last name">
+<input type="text" id="lname" name="lname" placeholder="Last name" autocomplete="family-name">
 </div>
 </div>
 <div class="f">
 <label class="fl" for="phone">Mobile Number <span class="req">*</span></label>
-<input type="tel" id="phone" placeholder="647-XXX-XXXX" required>
-<p class="hint">Used only to send you listing info — never shared.</p>
+<input type="tel" id="phone" name="phone" placeholder="647-XXX-XXXX" autocomplete="tel" inputmode="tel" required>
+<p class="hint">Used only for open house follow-up and your feedback link.</p>
 </div>
 <div class="f">
 <label class="fl" for="email">Email Address</label>
-<input type="email" id="email" placeholder="your@email.com">
-<p class="hint">Optional — for market reports &amp; sold price alerts.</p>
+<input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" inputmode="email">
+<p class="hint">Optional — for listing updates and sold price alerts.</p>
 </div>
 </div>
 
 <div class="card">
-<div class="sec-lbl">Are You currently Signed-up with a Realtor under a Buyers Representation Agreement?</div>
-<div class="ci" id="ci-yes"><input type="radio" name="has_realtor" value="yes"><div><div class="ct">Yes — I have a realtor representing me</div></div></div>
-<div class="ci" id="ci-no" style="margin-top:8px;"><input type="radio" name="has_realtor" value="no"><div><div class="ct">No — I'm open to working with an agent</div></div></div>
+<div class="sec-lbl">Representation</div>
+<div class="ci" id="ci-yes">
+<input type="radio" name="has_realtor" value="yes">
+<div><div class="ct">Yes — I am signed up with a realtor under a Buyer Representation Agreement</div></div>
+</div>
+<div class="ci" id="ci-no" style="margin-top:8px;">
+<input type="radio" name="has_realtor" value="no">
+<div><div class="ct">No — I am not signed up under a Buyer Representation Agreement</div></div>
+</div>
+<div class="ci" id="ci-unsure" style="margin-top:8px;">
+<input type="radio" name="has_realtor" value="unsure">
+<div><div class="ct">Not sure</div></div>
+</div>
+
 <div class="cond" id="rltr-block">
 <div class="cond-inner">
-<p class="hint" style="margin-bottom:14px;">No problem at all — please share their details so I can coordinate with them on your behalf.</p>
+<p class="hint" style="margin-bottom:14px;">If you want, you can share their details below.</p>
 <div class="f">
 <label class="fl" for="r_name">Realtor's Name</label>
-<input type="text" id="r_name" placeholder="Agent's full name">
+<input type="text" id="r_name" name="r_name" placeholder="Agent's full name" autocomplete="off">
 </div>
 <div class="f" style="margin-bottom:0;">
 <label class="fl" for="r_phone">Realtor's Phone</label>
-<input type="tel" id="r_phone" placeholder="Agent's phone number">
+<input type="tel" id="r_phone" name="r_phone" placeholder="Agent's phone number" autocomplete="off" inputmode="tel">
 </div>
 </div>
 </div>
 </div>
 
-<button type="button" class="btn-gold" id="signInBtn">Sign In &nbsp;—&nbsp; Welcome to the Home</button>
-<p class="privacy">🔒 &nbsp;Your information is private and will never be shared with third parties.</p>
-
-<button class="log-toggle" id="logToggle" type="button">
-<span>📋 &nbsp;Today's Visitor Log</span>
-<span class="badge" id="log-badge">0</span>
-</button>
-<div class="log-panel" id="log-panel">
-<div class="log-search">
-<input type="text" id="log-search" placeholder="🔍  Search by name or phone...">
-</div>
-<div style="padding:8px 0 4px 0;text-align:right;">
-<button id="exportBtn" style="padding:7px 14px;background:var(--ink);color:var(--gold);border:none;border-radius:var(--r-md);font-size:0.78rem;font-family:var(--fb);letter-spacing:0.05em;cursor:pointer;font-weight:600;text-transform:uppercase;">⬇ Export CSV</button>
-</div>
-<div class="log-list" id="log-list">
-<div class="log-empty">No visitors signed in yet today.</div>
-</div>
-</div>
-</div>
-
-<div class="bridge" id="bridge">
-<div class="bridge-card">
-<h2 id="bridge-name">Welcome!</h2>
-<p>Enjoy your tour. When you're ready, please fill out the short feedback form — it helps me find your perfect home.</p>
-<div class="p2-link" id="p2-url-display"></div>
-<button class="btn-sms" id="smsBtn">📱 &nbsp;Send to Their Phone via SMS</button>
-<button class="btn-outline" id="ipadBtn">📋 &nbsp;Open on This iPad — Hand to Prospect</button>
-</div>
-<button class="btn-gold" style="margin-top:14px;" id="nextBtn">＋ &nbsp;Next Visitor — Sign In Again</button>
-</div>
+<button type="submit" class="btn-gold" id="signInBtn">Sign In &nbsp;—&nbsp; Continue to Feedback</button>
+<p class="privacy">By submitting, you agree to be contacted about this open house and to receive a reminder text if you do not complete feedback shortly after sign-in. Reply STOP to opt out. </p>
+<p class="notice" id="notice">Submitting...</p>
+</form>
 
 <footer class="ftr">
 <div class="ftr-name">Sanjeev Khera &nbsp;·&nbsp; RE/MAX Hallmark &nbsp;·&nbsp; Team Lino Arci</div>
@@ -211,219 +180,124 @@ input[type=text],input[type=email],input[type=tel],select{width:100%;padding:13p
 </div>
 
 <script>
-const PART2_BASE = "https://khera-ca.github.io/openhouse-feedback";
-let visitors = JSON.parse(localStorage.getItem("oh_visitors_today") || "[]");
-let currentPhone = "";
-let currentName = "";
-let currentP2 = "";
+const WEBHOOK_URL = "YOUR_APPS_SCRIPT_WEBHOOK_URL";
+const PART2_BASE = "https://khera-ca.github.io/openhouse-feedback/";
 
 function $(id){ return document.getElementById(id); }
-function saveVisitors(){ localStorage.setItem("oh_visitors_today", JSON.stringify(visitors)); }
-function esc(s){ return String(s || "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[m])); }
 
 function setTheme(){
   const btn = $("themeBtn");
   let theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", theme);
-  btn.innerHTML = theme === "dark"
-    ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-    : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  const moon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  const sun = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  btn.innerHTML = theme === "dark" ? sun : moon;
   btn.onclick = () => {
     theme = theme === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", theme);
-    btn.innerHTML = theme === "dark"
-      ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-      : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    btn.innerHTML = theme === "dark" ? sun : moon;
   };
 }
 
 function pickRealtor(v){
-  document.querySelectorAll(".ci").forEach(x => x.classList.remove("sel"));
+  ["yes","no","unsure"].forEach(x => $("ci-" + x).classList.remove("sel"));
   $("ci-" + v).classList.add("sel");
-  const radio = $("ci-" + v).querySelector("input[type=radio]");
+  const radio = $("ci-" + v).querySelector('input[type="radio"]');
   if (radio) radio.checked = true;
-  $("rltr-block").classList.toggle("vis", v === "yes");
+  $("rltr-block").classList.toggle("vis", v === "yes" || v === "unsure");
 }
 
-function buildP2URL(phone, name, property){
-  return PART2_BASE + "?phone=" + encodeURIComponent(phone) + "&name=" + encodeURIComponent(name) + "&property=" + encodeURIComponent(property);
+function normalizePhone(phone){
+  return String(phone || "").replace(/[^\d+]/g, "").trim();
 }
 
-function renderLog(query=""){
-  const list = $("log-list");
-  let items = [...visitors].reverse();
-  if (query.trim()) {
-    const q = query.trim().toLowerCase();
-    items = items.filter(v => ((v.fname || "") + " " + (v.lname || "")).toLowerCase().includes(q) || String(v.phone || "").includes(q));
-  }
-  if (!items.length) {
-    list.innerHTML = '<div class="log-empty">' + (query.trim() ? "No matches found." : "No visitors signed in yet today.") + "</div>";
-    return;
-  }
-  list.innerHTML = items.map((v, i) => {
-    const realIndex = visitors.length - 1 - i;
-    const initials = ((v.fname || "")[0] || "") + ((v.lname || "")[0] || "");
-    return `<div class="log-item" onclick="openVisitor(${realIndex})">
-      <div class="log-avatar">${esc(initials.toUpperCase())}</div>
-      <div style="flex:1;min-width:0;">
-        <div class="log-name">${esc(v.fname)} ${esc(v.lname)}</div>
-        <div class="log-phone">${esc(v.phone)}</div>
-      </div>
-      <div class="log-time">${esc(v.time)}</div>
-      <div class="log-arrow">›</div>
-    </div>`;
-  }).join("");
+function createLeadId(){
+  return "oh_" + Date.now() + "_" + Math.random().toString(36).slice(2,8);
 }
 
-function updateBadge(){
-  $("log-badge").textContent = visitors.length;
+function buildP2URL(payload){
+  const params = new URLSearchParams();
+  params.set("lead_id", payload.lead_id);
+  params.set("name", [payload.fname, payload.lname].filter(Boolean).join(" ").trim());
+  params.set("phone", payload.phone);
+  params.set("email", payload.email || "");
+  params.set("property", payload.property);
+  return PART2_BASE + "?" + params.toString();
 }
 
-function signIn(){
+async function submitSignIn(e){
+  e.preventDefault();
+
   const fname = $("fname").value.trim();
-  const phone = $("phone").value.trim();
+  const lname = $("lname").value.trim();
+  const phone = normalizePhone($("phone").value);
+  const email = $("email").value.trim();
   const property = $("property").value;
-  if (!fname){ alert("Please enter your first name."); return; }
-  if (!phone){ alert("Please enter your mobile number."); return; }
-  if (!property){ alert("Please select the property you are visiting."); return; }
+  const has_realtor = document.querySelector('input[name="has_realtor"]:checked')?.value || "";
+  const realtor_name = $("r_name").value.trim();
+  const realtor_phone = normalizePhone($("r_phone").value);
 
-  const visitor = {
+  if (!fname) return alert("Please enter your first name.");
+  if (!phone) return alert("Please enter your mobile number.");
+  if (!property) return alert("Please select the property you are visiting.");
+  if (!has_realtor) return alert("Please select your representation status.");
+
+  const lead_id = createLeadId();
+  const now = new Date();
+
+  const payload = {
+    submission_type: "signin",
+    lead_id,
     fname,
-    lname: $("lname").value.trim(),
+    lname,
     phone,
-    email: $("email").value.trim(),
+    email,
     property,
-    has_realtor: document.querySelector('input[name="has_realtor"]:checked')?.value || "",
-    realtor_name: $("r_name").value.trim(),
-    realtor_phone: $("r_phone").value.trim(),
-time: new Date().toLocaleString("en-CA", {
-  year: "numeric",
-  month: "2-digit",
-  day: "2-digit",
-  hour: "2-digit",
-  minute: "2-digit",
-  hour12: true
-}),
-    timestamp: Date.now()
+    has_realtor,
+    realtor_name,
+    realtor_phone,
+    bra_status: has_realtor === "yes" ? "BRA Yes" : has_realtor === "no" ? "BRA No" : "BRA Unknown",
+    source: "Open House",
+    stage: "New Lead",
+    assigned_agent: "SANJEEV KHERA",
+    province: "Ontario",
+    feedback_submitted: "No",
+    feedback_link: "",
+    created_at: now.toISOString(),
+    updated_at: now.toISOString(),
+    reminder_status: "Pending",
+    reminder_due_at: new Date(now.getTime() + 15 * 60 * 1000).toISOString()
   };
 
-  visitors.push(visitor);
-  saveVisitors();
+  payload.feedback_link = buildP2URL(payload);
 
-  currentPhone = phone;
-  currentName = fname;
-  currentP2 = buildP2URL(phone, fname, property);
+  $("signInBtn").disabled = true;
+  $("notice").classList.add("vis");
 
-  $("bridge-name").textContent = "Welcome, " + fname + "! 🏡";
-  $("p2-url-display").textContent = currentP2;
-  $("form-p1").style.display = "none";
-  $("bridge").classList.add("vis");
+  try {
+    const res = await fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
 
-  updateBadge();
-  renderLog();
-  window.scrollTo({top:0, behavior:"smooth"});
-}
+    if (!res.ok) throw new Error("Submit failed");
 
-function openVisitor(index){
-  const v = visitors[index];
-  if (!v) return;
-  currentPhone = v.phone || "";
-  currentName = v.fname || "";
-  currentP2 = buildP2URL(v.phone || "", v.fname || "", v.property || "");
-  $("bridge-name").textContent = "Welcome back, " + (v.fname || "Guest") + "! 🏡";
-  $("p2-url-display").textContent = currentP2;
-  $("form-p1").style.display = "none";
-  $("bridge").classList.add("vis");
-  $("log-panel").classList.remove("vis");
-  window.scrollTo({top:0, behavior:"smooth"});
-}
-
-function doSMS(){
-  if (!currentPhone || !currentName || !currentP2) { alert("Please sign in a visitor first."); return; }
-  const msg = "Hi " + currentName + "! Thank you for visiting today's open house. I'd love your quick feedback — takes 2 mins: " + currentP2 + "\\n\\n— Sanjeev Khera, RE/MAX Hallmark\\nReply STOP to opt out.";
-  window.location.href = "sms:" + currentPhone + "?body=" + encodeURIComponent(msg);
-}
-
-function doIPad(){
-  if (!currentP2) { alert("Please sign in a visitor first."); return; }
-  window.open(currentP2, "_blank");
-}
-
-function resetAll(){
-  ["fname","lname","phone","email","r_name","r_phone"].forEach(id => $(id).value = "");
-  $("property").value = "";
-  document.querySelectorAll(".ci").forEach(x => x.classList.remove("sel"));
-  document.querySelectorAll('input[type=radio]').forEach(x => x.checked = false);
-  $("rltr-block").classList.remove("vis");
-  $("bridge").classList.remove("vis");
-  $("form-p1").style.display = "block";
-  currentPhone = "";
-  currentName = "";
-  currentP2 = "";
-  window.scrollTo({top:0, behavior:"smooth"});
-}
-
-function exportVisitorsCSV(){
-  if (!visitors.length) {
-    alert("No visitors to export yet.");
-    return;
+    window.location.href = payload.feedback_link;
+  } catch (err) {
+    console.error(err);
+    alert("There was a problem submitting your sign-in. Please try again.");
+    $("signInBtn").disabled = false;
+    $("notice").classList.remove("vis");
   }
-
-  const headers = [
-    "Time",
-    "First Name",
-    "Last Name",
-    "Phone",
-    "Email",
-    "Property",
-    "Working with Realtor",
-    "Realtor Name",
-    "Realtor Phone"
-  ];
-
-  const rows = visitors.map(v => [
-    v.time || "",
-    v.fname || "",
-    v.lname || "",
-    v.phone || "",
-    v.email || "",
-    v.property || "",
-    v.has_realtor || "",
-    v.realtor_name || "",
-    v.realtor_phone || ""
-  ].map(value => '"' + String(value).replace(/"/g, '""') + '"').join(","));
-
-  const csv = [
-    headers.map(h => '"' + h + '"').join(","),
-    ...rows
-  ].join("\r\n");
-
-  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "openhouse-visitors-" + new Date().toISOString().slice(0,10) + ".csv";
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   setTheme();
-
   $("ci-yes").addEventListener("click", () => pickRealtor("yes"));
   $("ci-no").addEventListener("click", () => pickRealtor("no"));
-  $("signInBtn").addEventListener("click", signIn);
-  $("logToggle").addEventListener("click", () => $("log-panel").classList.toggle("vis"));
-  $("log-search").addEventListener("input", e => renderLog(e.target.value));
-  $("exportBtn").addEventListener("click", exportVisitorsCSV);
-  $("smsBtn").addEventListener("click", doSMS);
-  $("ipadBtn").addEventListener("click", doIPad);
-  $("nextBtn").addEventListener("click", resetAll);
-
-  updateBadge();
-  renderLog();
+  $("ci-unsure").addEventListener("click", () => pickRealtor("unsure"));
+  $("signInForm").addEventListener("submit", submitSignIn);
 });
 </script>
 </body>
