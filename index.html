@@ -169,7 +169,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 </div>
 
 <button type="submit" class="btn-gold" id="signInBtn">Sign In &nbsp;—&nbsp; Continue to Feedback</button>
-<p class="privacy">By submitting, you agree to be contacted about this open house and to receive a reminder text if you do not complete feedback shortly after sign-in. Reply STOP to opt out. </p>
+<p class="privacy">By submitting, you agree to be contacted about this open house and to receive a reminder text if you do not complete feedback shortly after sign-in. Reply STOP to opt out.</p>
 <p class="notice" id="notice">Submitting...</p>
 </form>
 
@@ -277,7 +277,10 @@ async function submitSignIn(e){
   try {
     const res = await fetch(WEBHOOK_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      redirect: "follow",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
       body: JSON.stringify(payload)
     });
 
