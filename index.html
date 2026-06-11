@@ -296,7 +296,14 @@ function signIn(){
     has_realtor: document.querySelector('input[name="has_realtor"]:checked')?.value || "",
     realtor_name: $("r_name").value.trim(),
     realtor_phone: $("r_phone").value.trim(),
-    time: new Date().toLocaleTimeString("en-CA", {hour:"2-digit", minute:"2-digit"}),
+time: new Date().toLocaleString("en-CA", {
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: true
+}),
     timestamp: Date.now()
   };
 
